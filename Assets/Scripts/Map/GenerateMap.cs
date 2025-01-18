@@ -23,12 +23,12 @@ public class GenerateMap : MonoBehaviour
                 GameObject wall = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 wall.GetComponent<Renderer>().material = cubeMaterial;
                 pos += ((i % 2 == 0) ? new Vector3(0, 0, movement) : new Vector3(movement, 0, 0));
-                wall.transform.position = pos;
+                wall.transform.SetPositionAndRotation(pos, Quaternion.Euler(0, i * 90, 0));
             }
             pos += ((i % 2 == 0) ? new Vector3(0, 0, movement) : new Vector3(movement, 0, 0));
             GameObject corner = GameObject.CreatePrimitive(PrimitiveType.Cube);
             corner.GetComponent<Renderer>().material = cornerMaterial;
-            corner.transform.position = pos;
+            corner.transform.SetPositionAndRotation(pos, Quaternion.Euler(0, (i + 2) * 90, 0));
         }
     }
 
