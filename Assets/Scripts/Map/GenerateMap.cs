@@ -20,9 +20,9 @@ public class GenerateMap : MonoBehaviour
             int movement = (i < 2) ? 1 : -1;
             for (int j = 0; j < length; j++)
             {
+                pos += ((i % 2 == 0) ? new Vector3(0, 0, movement) : new Vector3(movement, 0, 0));
                 GameObject wall = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 wall.GetComponent<Renderer>().material = cubeMaterial;
-                pos += ((i % 2 == 0) ? new Vector3(0, 0, movement) : new Vector3(movement, 0, 0));
                 wall.transform.SetPositionAndRotation(pos, Quaternion.Euler(0, i * 90, 0));
             }
             pos += ((i % 2 == 0) ? new Vector3(0, 0, movement) : new Vector3(movement, 0, 0));
