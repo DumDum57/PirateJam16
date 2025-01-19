@@ -1,3 +1,5 @@
+using Assets.Scripts.Host;
+using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,16 +9,29 @@ using UnityEngine.UI;
 
 public class InfectHost : MonoBehaviour
 {
-    public Sprite normalSprite;
-    public Sprite hoveredSprite;
+    private Host host;
 
     private bool selected = false;
     private bool held = false;
 
+    public Sprite normal;
+    public Sprite hovered;
+    public Sprite infected;
+    public Sprite infectedHovered;
+
+    private Sprite normalSprite;
+    private Sprite hoveredSprite;
+
+    internal void Initilize(Host host)
+    {
+        this.host = host;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        normalSprite = normal;
+        hoveredSprite = hovered;
     }
 
     // Update is called once per frame
@@ -26,11 +41,18 @@ public class InfectHost : MonoBehaviour
         {
             selected = false;
             GetComponent<SpriteRenderer>().sprite = normalSprite;
-            Debug.Log("sex");
         }
         else if (!Input.GetMouseButtonDown(0) && held)
         {
             held = false;
+        }
+
+        if (Input.GetKey(KeyCode.Return) && !host.Infected && selected)
+        {
+            host.Infected = true;
+            normalSprite = infected;
+            hoveredSprite = infectedHovered;
+            selected = false;
         }
     }
 
@@ -43,6 +65,8 @@ public class InfectHost : MonoBehaviour
         {
             selected = true;
             held = true;
+
+            
             GetComponent<SpriteRenderer>().sprite = hoveredSprite;
         }
     }
