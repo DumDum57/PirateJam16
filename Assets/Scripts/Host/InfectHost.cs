@@ -23,7 +23,6 @@ public class InfectHost : MonoBehaviour
     private void OnMouseOver()
     {
         GetComponent<SpriteRenderer>().sprite = hoveredSprite;
-        Debug.Log("g");
     }
 
     private void OnMouseExit()
