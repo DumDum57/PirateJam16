@@ -53,6 +53,7 @@ public class InfectHost : MonoBehaviour
             normalSprite = infected;
             hoveredSprite = infectedHovered;
             selected = false;
+            GetComponent<SpriteRenderer>().sprite = normalSprite;
         }
     }
 

@@ -224,7 +224,7 @@ Transform:
   m_GameObject: {fileID: 221309538}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.027328972, y: 0.5, z: -2.1536047}
+  m_LocalPosition: {x: -2.5, y: 0.5, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingPoint: {x: -6.5, y: 0.5, z: -6.5}
-  length: 12
+  length: 4
   cubeMaterial: {fileID: 2100000, guid: 62f3ca34b25de0142b093da155f228ba, type: 2}
   cornerMaterial: {fileID: 2100000, guid: 792532f36d033f84cbe62512838d48c0, type: 2}
 --- !u!4 &485455107
