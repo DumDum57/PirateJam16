@@ -12,7 +12,7 @@ public class HostMovement : MonoBehaviour
 
     private float xSpeed;
     private float zSpeed;
-    private double degrees;
+    private float degrees;
 
     private Vector3 oldPosition;
 
@@ -21,53 +21,26 @@ public class HostMovement : MonoBehaviour
     internal void Inizialize(Host host)
     {
         this.host = host;
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        xSpeed = (UnityEngine.Random.value * 10f) - 5f;
-        zSpeed = (UnityEngine.Random.value * 10f) - 5f;
-        degrees = Math.Atan(xSpeed / zSpeed);
-
-        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(xSpeed, 0, zSpeed);
+        degrees = UnityEngine.Random.value;
+        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3((float)Math.Sin(degrees) * speedModifier, 0, (float)Math.Cos(degrees) * speedModifier), ForceMode.Impulse);
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<Rigidbody>().velocity = 4 * (gameObject.GetComponent<Rigidbody>().velocity.normalized);
+        oldPosition = gameObject.transform.position;
     }
 
-    /*private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("sex");
+        gameObject.transform.position = oldPosition;
+    }
+    
 
-        if (collision.gameObject.CompareTag("border") || collision.gameObject.CompareTag("host"))
-        {
-            Vector3 newPosition = gameObject.transform.position;
-            gameObject.transform.position = oldPosition;
-            BoxCollider boxCollider = collision.gameObject.GetComponent<BoxCollider>();
-
-            foreach (ContactPoint contact in collision.contacts)
-            {
-                Collider col = contact.otherCollider;
-                if (col is MeshCollider meshCol && !meshCol.convex && meshCol.sharedMesh != null)
-                {
-                    Vector3 rayStart = contact.point + contact.normal * 0.01f;
-                    Vector3 rayDir = -contact.normal;
-
-                    if (col.Raycast(new Ray(rayStart, rayDir), out RaycastHit hit, 1f))
-                    {
-                        int triIndex = hit.triangleIndex;
-                        // Look up triangle vertices, etc.
-                    }
-                }
-            }
-
-            degrees = Math.Atan(xSpeed / zSpeed);
-            xSpeed = (float)Math.Sin(-degrees) * 0.005f;
-            zSpeed = (float)Math.Cos(-degrees) * 0.005f;
-        }
-    }*/
 }
