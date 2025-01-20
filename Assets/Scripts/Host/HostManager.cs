@@ -13,5 +13,6 @@ public class HostManager : MonoBehaviour
         host = new(1);
 
         gameObject.GetComponent<InfectHost>().Initilize(host);
+        gameObject.GetComponent<HostMovement>().Inizialize(host);
     }
 }
