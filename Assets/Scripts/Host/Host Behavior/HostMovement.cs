@@ -10,11 +10,7 @@ public class HostMovement : MonoBehaviour
 {
     private Host host;
 
-    private float xSpeed;
-    private float zSpeed;
     private float degrees;
-
-    private Vector3 oldPosition;
 
     public float speedModifier = 1f;
 
@@ -27,20 +23,15 @@ public class HostMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        degrees = UnityEngine.Random.value;
-        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3((float)Math.Sin(degrees) * speedModifier, 0, (float)Math.Cos(degrees) * speedModifier), ForceMode.Impulse);
+        //degrees = UnityEngine.Random.value;
+        //GetComponent<Rigidbody>().AddForce(new Vector3((float)Math.Sin(degrees) * speedModifier, 0, (float)Math.Cos(degrees) * speedModifier), ForceMode.Impulse);
+
+        GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 1) * speedModifier;
     }
 
     // Update is called once per frame
     void Update()
     {
-        oldPosition = gameObject.transform.position;
+        GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * speedModifier;
     }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        gameObject.transform.position = oldPosition;
-    }
-    
-
 }
