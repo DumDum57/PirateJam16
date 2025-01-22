@@ -26,13 +26,19 @@ public class InfectHost : MonoBehaviour
     internal void Initilize(Host host)
     {
         this.host = host;
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        normalSprite = normal;
-        hoveredSprite = hovered;
+        if (host.Infected)
+        {
+            normalSprite = infected;
+            hoveredSprite = infectedHovered;
+        }
+        else
+        {
+            normalSprite = normal;
+            hoveredSprite = hovered;
+        }
+
+        GetComponent<SpriteRenderer>().sprite = normalSprite;
     }
 
     // Update is called once per frame
@@ -48,7 +54,7 @@ public class InfectHost : MonoBehaviour
             held = false;
         }
 
-        if (Input.GetKey(KeyCode.Return) && !host.Infected && selected)
+        if (Input.GetKey(KeyCode.Return) && !host.Infected && selected && host.Manager.globalManager.CheckInfectionRange(host, 1, out Host other))
         {
             host.Infected = true;
             normalSprite = infected;

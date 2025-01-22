@@ -18,7 +18,7 @@ public class GlobalHostManager : MonoBehaviour
         Host minHost = null;
         foreach (Host host in hosts)
         {
-            if (Vector3.Distance(infecting.Manager.gameObject.transform.position, host.Manager.transform.position) < minDistance * range)
+            if (Vector3.Distance(infecting.Manager.gameObject.transform.position, host.Manager.transform.position) < minDistance * range && host.Infected)
             {
                 minDistance = Vector3.Distance(infecting.Manager.gameObject.transform.position, host.Manager.transform.position);
                 minHost = host;

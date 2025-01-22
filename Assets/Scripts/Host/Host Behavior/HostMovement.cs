@@ -17,16 +17,12 @@ public class HostMovement : MonoBehaviour
     internal void Inizialize(Host host)
     {
         this.host = host;
-
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //degrees = UnityEngine.Random.value;
-        //GetComponent<Rigidbody>().AddForce(new Vector3((float)Math.Sin(degrees) * speedModifier, 0, (float)Math.Cos(degrees) * speedModifier), ForceMode.Impulse);
-
-        GetComponent<Rigidbody>().velocity = new Vector3(1, 0, 1) * speedModifier;
+        GetComponent<Rigidbody>().velocity = new Vector3(UnityEngine.Random.Range(-1f, 1f) + 0.001f, 0, UnityEngine.Random.Range(-1f, 1f) + 0.001f) * speedModifier;
     }
 
     // Update is called once per frame
