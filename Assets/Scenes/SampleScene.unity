@@ -248,6 +248,7 @@ MonoBehaviour:
   hovered: {fileID: 21300000, guid: ceb49467a99757244840b5311324136e, type: 3}
   infected: {fileID: 21300000, guid: b59b3ac23d1fd0b42ab6d5bff1106ebf, type: 3}
   infectedHovered: {fileID: 21300000, guid: 4633b5ebe23c1ad40bbf80d4461a1919, type: 3}
+  range: {fileID: 21300000, guid: ef5dbcddee311e74bad60502711b5c4e, type: 3}
 --- !u!114 &221309543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f36ed3fb2fc69748aa5000315eb0894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  globalManager: {fileID: 967982320}
+  startInfected: 0
 --- !u!114 &221309544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingPoint: {x: -6.5, y: 0.5, z: -6.5}
-  length: 4
+  length: 5
   cubeMaterial: {fileID: 2100000, guid: 62f3ca34b25de0142b093da155f228ba, type: 2}
   cornerMaterial: {fileID: 2100000, guid: 792532f36d033f84cbe62512838d48c0, type: 2}
   physicMaterial: {fileID: 13400000, guid: 7794b99f92cb24141a68b171d3d93cda, type: 2}
@@ -655,6 +658,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomSpeed: 1
+--- !u!1 &967982319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967982321}
+  - component: {fileID: 967982320}
+  m_Layer: 0
+  m_Name: Global Host Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &967982320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967982319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f4766a4b04a7144a054a3ff37dcb52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &967982321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967982319}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.706988, y: -12.917191, z: -5.2614555}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1454872522
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +780,7 @@ MonoBehaviour:
   hovered: {fileID: 21300000, guid: ceb49467a99757244840b5311324136e, type: 3}
   infected: {fileID: 21300000, guid: b59b3ac23d1fd0b42ab6d5bff1106ebf, type: 3}
   infectedHovered: {fileID: 21300000, guid: 4633b5ebe23c1ad40bbf80d4461a1919, type: 3}
+  range: {fileID: 21300000, guid: ef5dbcddee311e74bad60502711b5c4e, type: 3}
 --- !u!114 &1454872526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,6 +793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f36ed3fb2fc69748aa5000315eb0894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  globalManager: {fileID: 967982320}
+  startInfected: 0
 --- !u!212 &1454872527
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -871,6 +921,7 @@ MonoBehaviour:
   hovered: {fileID: 21300000, guid: ceb49467a99757244840b5311324136e, type: 3}
   infected: {fileID: 21300000, guid: b59b3ac23d1fd0b42ab6d5bff1106ebf, type: 3}
   infectedHovered: {fileID: 21300000, guid: 4633b5ebe23c1ad40bbf80d4461a1919, type: 3}
+  range: {fileID: 21300000, guid: ef5dbcddee311e74bad60502711b5c4e, type: 3}
 --- !u!114 &1807471372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,6 +934,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f36ed3fb2fc69748aa5000315eb0894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  globalManager: {fileID: 967982320}
+  startInfected: 0
 --- !u!212 &1807471373
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1089,6 +1142,7 @@ MonoBehaviour:
   hovered: {fileID: 21300000, guid: ceb49467a99757244840b5311324136e, type: 3}
   infected: {fileID: 21300000, guid: b59b3ac23d1fd0b42ab6d5bff1106ebf, type: 3}
   infectedHovered: {fileID: 21300000, guid: 4633b5ebe23c1ad40bbf80d4461a1919, type: 3}
+  range: {fileID: 21300000, guid: ef5dbcddee311e74bad60502711b5c4e, type: 3}
 --- !u!114 &1992777985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,6 +1155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f36ed3fb2fc69748aa5000315eb0894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  globalManager: {fileID: 967982320}
+  startInfected: 1
 --- !u!212 &1992777986
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1197,6 +1253,7 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 685754010}
   - {fileID: 485455107}
+  - {fileID: 967982321}
   - {fileID: 221309541}
   - {fileID: 1454872529}
   - {fileID: 1992777988}
