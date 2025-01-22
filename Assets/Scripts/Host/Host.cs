@@ -11,14 +11,16 @@ namespace Assets.Scripts.Host
         public bool Infected { get; set; }
         public int Level { get; set; }
         public int Speed { get; set; }
+        internal HostManager Manager { get; set; }
 
-        public Host(int level)
+        public Host(int level, HostManager manager)
         {
             Random random = new();
 
             Infected = false;
             Level = level;
             Speed = random.Next(1, 5);
+            Manager = manager;
         }
     }
 }
