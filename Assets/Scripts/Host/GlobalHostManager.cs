@@ -12,18 +12,6 @@ public class GlobalHostManager : MonoBehaviour
         hosts.Add(host);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     internal bool CheckInfectionRange(Host infecting, float range, out Host other)
     {
         float minDistance = 2f;

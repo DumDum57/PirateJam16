@@ -16,5 +16,6 @@ public class HostManager : MonoBehaviour
 
         gameObject.GetComponent<InfectHost>().Initilize(host);
         gameObject.GetComponent<HostMovement>().Inizialize(host);
+        globalManager.AddHost(host);
     }
 }
