@@ -11,9 +11,10 @@ namespace Assets.Scripts.Host
         public bool Infected { get; set; }
         public int Level { get; set; }
         public int Speed { get; set; }
-        internal HostManager Manager { get; set; }
+        internal HostManager Manager { get; }
+        internal bool RangeRendered { get; set; }
 
-        public Host(int level, HostManager manager)
+        internal Host(int level, HostManager manager)
         {
             Random random = new();
 
@@ -21,6 +22,7 @@ namespace Assets.Scripts.Host
             Level = level;
             Speed = random.Next(1, 5);
             Manager = manager;
+            RangeRendered = false;
         }
     }
 }
