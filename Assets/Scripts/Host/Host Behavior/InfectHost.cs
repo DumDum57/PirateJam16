@@ -48,7 +48,7 @@ public class InfectHost : MonoBehaviour
         rangeRenderer = new GameObject("Host Range Renderer");
         rangeRenderer.AddComponent<SpriteRenderer>();
         rangeRenderer.GetComponent<SpriteRenderer>().sprite = range;
-        rangeRenderer.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 50);
+        rangeRenderer.GetComponent<SpriteRenderer>().color = new Color(191f / 255f, 0, 0, 100f / 255f);
         rangeRenderer.GetComponent<SpriteRenderer>().transform.rotation = Quaternion.Euler(90, 0, 0);
         rangeRenderer.SetActive(false);
     }
